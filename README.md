@@ -14,6 +14,7 @@
 |Challenge|Code|
 |---|---|
 |Implement a linked list|linkedlist.py|  
+|Remove duplicates in a linked list|remove_duplicates.py| 
 
 
 
