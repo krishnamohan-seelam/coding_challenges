@@ -36,13 +36,16 @@ class IntegerHashTable:
         self.size = size
         self._array = [[] for i in range(self.size)]
 
+    def __len__(self):
+        return len(self._array)
+
     def _validate_key(self, key):
         if not isinstance(key, int):
             raise TypeError("Key must be an integer")
 
     def _hash_function(self, key):
         self._validate_key(key)
-        return key % self.size
+        return hash(key) % self.size
 
     def set(self, key, value):
         self._validate_key(key)

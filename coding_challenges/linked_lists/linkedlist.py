@@ -6,6 +6,8 @@
 
 # ## Problem: Implement a linked list with insert, append, find, delete, length, and print methods.
 
+import copy
+
 
 class Node(object):
 
@@ -32,6 +34,31 @@ class LinkedList(object):
         _extended_summary_
         """
         return len(self.traverse())
+
+    def get(self, index):
+        """
+        Get the data at the given index.
+
+        Parameters:
+            index (int): The index of the element to retrieve, starting from the head of the list.
+
+        Returns:
+            Any: A deep copy of the data at the given index if found.
+
+        Error Handling:
+            Raising an IndexError if index is invalid.
+        """
+        if index < 0:
+            raise IndexError("Index must be non-negative")
+        current = self.head
+        current_index = 0
+        while current_index < index and current is not None:
+            current = current.next_node
+            current_index += 1
+        if current is None:
+            raise IndexError("Index out of bounds")
+        # Here we know that we are at the right index
+        return copy.deepcopy(current.data)
 
     def __iter__(self):
         """
@@ -117,3 +144,13 @@ class LinkedList(object):
 
     def get_all_data(self):
         return self.traverse()
+
+
+if __name__ == "__main__":
+    ll = LinkedList()
+    ll.insert_to_front(1)
+    ll.insert_to_front(3)
+    ll.insert_to_front(5)
+    ll.insert_to_front(7)
+    el = ll.get(0)
+    print(el)
