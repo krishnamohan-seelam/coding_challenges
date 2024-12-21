@@ -41,9 +41,9 @@ class Rotation(object):
             return False
         if s1 == s2:
             return True
-        for l in range(len(s1)):
-            l = l % len(s1)
-            v = s1[l:] + s1[:l]
+        for counter in range(len(s1)):
+            counter = counter % len(s1)
+            v = s1[counter:] + s1[:counter]
             if v == s2:
                 return True
         return False

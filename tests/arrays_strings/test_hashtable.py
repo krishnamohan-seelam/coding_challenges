@@ -11,7 +11,7 @@ class TestHashTable(unittest.TestCase):
 
         print("Test: get on an empty hash table index")
         with self.assertRaises(KeyError):
-            result = hash_table.get(0)
+            hash_table.get(0)
 
         print("Test: set on an empty hash table index")
         hash_table.set(0, "foo")
